@@ -8,7 +8,7 @@
         <version>2.2.1.RELEASE</version>
         <relativePath/> <!-- lookup parent from repository -->
     </parent>
-    <groupId>com.sukmanov.auth</groupId>
+    <groupId>com.sukmanov</groupId>
     <artifactId>sukmanov-auth-service</artifactId>
     <version>0.0.1-SNAPSHOT</version>
     <name>sukmanov-auth-service</name>
@@ -42,6 +42,14 @@
             <artifactId>lombok</artifactId>
             <optional>true</optional>
         </dependency>
+
+        <dependency>
+            <groupId>com.sukmanov</groupId>
+            <artifactId>sukmanov-configuration-service</artifactId>
+            <version>0.0.1-SNAPSHOT</version>
+            <classifier>sukmanov-configuration-service</classifier>
+        </dependency>
+
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-test</artifactId>
