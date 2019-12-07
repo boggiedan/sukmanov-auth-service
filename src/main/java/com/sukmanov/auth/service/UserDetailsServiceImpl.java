@@ -1,5 +1,6 @@
 package com.sukmanov.auth.service;
 
+import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.Setter;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -10,12 +11,14 @@ import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
+import org.springframework.stereotype.Component;
 import org.springframework.stereotype.Service;
 
 import java.util.Arrays;
 import java.util.List;
 
 @Service
+@Component("UserDetailsServiceImpl")
 public class UserDetailsServiceImpl implements UserDetailsService {
 
     private BCryptPasswordEncoder encoder;
@@ -50,16 +53,11 @@ public class UserDetailsServiceImpl implements UserDetailsService {
     // A (temporary) class represent the user saved in the database.
     @Getter
     @Setter
+    @AllArgsConstructor
     private static class AppUser {
         private Integer id;
-        private String username, password;
+        private String username;
+        private String password;
         private String role;
-
-        public AppUser(Integer id, String username, String password, String role) {
-            this.id = id;
-            this.username = username;
-            this.password = password;
-            this.role = role;
-        }
     }
 }

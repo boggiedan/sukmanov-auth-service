@@ -1,8 +1,8 @@
 package com.sukmanov.auth.configuration;
 
 import com.sukmanov.configuration.security.JwtConfig;
-import com.sukmanov.configuration.security.JwtUsernameAndPasswordAuthenticationFilter;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.http.HttpMethod;
 import org.springframework.security.config.annotation.authentication.builders.AuthenticationManagerBuilder;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
@@ -23,7 +23,7 @@ public class SecurityCredentialsConfiguration extends WebSecurityConfigurerAdapt
 
     private BCryptPasswordEncoder passwordEncoder;
 
-    public SecurityCredentialsConfiguration(@Autowired JwtConfig jwtConfig, @Autowired UserDetailsService userDetailsService, @Autowired BCryptPasswordEncoder passwordEncoder) {
+    public SecurityCredentialsConfiguration(@Autowired JwtConfig jwtConfig, @Qualifier("UserDetailsServiceImpl") @Autowired UserDetailsService userDetailsService, @Autowired BCryptPasswordEncoder passwordEncoder) {
         this.jwtConfig = jwtConfig;
         this.userDetailsService = userDetailsService;
         this.passwordEncoder = passwordEncoder;
